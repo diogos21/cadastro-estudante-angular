@@ -1,0 +1,16 @@
+
+  <div *ngIf="hero">
+
+    <div>
+        <span>Aluno ID =  </span>{{hero.id}}
+    </div>
+
+    <div>
+
+      <label for="hero-name">Nome do aluno: </label>
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+
+    </div>
+
+</div>
+
