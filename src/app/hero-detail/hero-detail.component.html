@@ -1,16 +1,9 @@
-
-  <div *ngIf="hero">
-
-    <div>
-        <span>Aluno ID =  </span>{{hero.id}}
-    </div>
-
-    <div>
-
-      <label for="hero-name">Nome do aluno: </label>
-      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
-
-    </div>
-
+<div *ngIf="hero">
+  <h2>Aluno {{hero.name | uppercase}}</h2>
+  <div><span>ID: </span>{{hero.id}}</div>
+  <div>
+    <label for="hero-name">Nome Aluno: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+  </div>
+  <button (click)="goBack()">Voltar</button>
 </div>
-

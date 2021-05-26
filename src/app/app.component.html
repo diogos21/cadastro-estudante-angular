@@ -1,7 +1,7 @@
-<div class="main">
-    <h1>{{title}}</h1>
-    <div class="cad">
-        <app-heroes></app-heroes>
-        <app-messages></app-messages>
-    </div>
-</div>
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Alunos</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
