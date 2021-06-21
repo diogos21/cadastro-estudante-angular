@@ -11,7 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class HeroService {
 
-  private heroesUrl = 'http://localhost:3000/heroes';  // URL to web api
+  private heroesUrl = 'http://localhost:8080/estudantes';  // URL to web api
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,7 +24,7 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        tap(_ => this.log('fetched heroes')),
+        tap(_ => this.log('Alunos encontrados')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
@@ -33,7 +33,7 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
-      tap(_ => this.log(`fetched hero id=${id}`)),
+      tap(_ => this.log(`ID do ALUNO=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
   }
@@ -41,7 +41,7 @@ export class HeroService {
   updateHero(hero: Hero): Observable<any> {
     const url = `${this.heroesUrl}/${hero.id}`;
     return this.http.put(url, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      tap(_ => this.log(`ID atualizado=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }
@@ -49,7 +49,7 @@ export class HeroService {
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      tap((newHero: Hero) => this.log(`Aluno adicionado=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -59,7 +59,7 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`;
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted hero id=${id}`)),
+      tap(_ => this.log(`ID do Aluno deletado=${id}`)),
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
